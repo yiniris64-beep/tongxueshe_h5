@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>课程学习｜通学社</title>
+  <style>
+    :root{--blue:#2874f4;--blue-soft:#eaf4ff;--sky:#f5faff;--ink:#122244;--muted:#7186a7;--line:#d8e7f8;--card:#fff;--green:#70d75f;--shadow:0 8px 22px rgba(54,116,210,.08)}
+    *{box-sizing:border-box}
+    [hidden]{display:none!important}
+    body{margin:0;background:#dfe8f4;color:var(--ink);font-family:"Microsoft YaHei",Arial,sans-serif}
+    button{font:inherit;cursor:pointer}
+    button:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+    .phone{width:min(100%,430px);min-height:100vh;margin:auto;background:linear-gradient(180deg,#f7fbff 0,#eff8ff 100%);box-shadow:0 0 0 1px #bfd0e4,0 18px 44px rgba(34,67,108,.15)}
+    .top{height:82px;display:grid;grid-template-columns:44px 1fr 44px;align-items:end;padding:0 16px 13px;background:#fbfdff;border-bottom:1px solid #e5effa}
+    .back{height:36px;border:0;background:transparent;color:#15223c;font-size:31px;line-height:1}
+    .top strong{text-align:center;font-size:17px;letter-spacing:-.04em}
+    .top-spacer{width:44px}
+    main{padding:14px 14px 106px}
+    .video{overflow:hidden;border-radius:7px;background:#203b50;color:#e2eceb;box-shadow:var(--shadow)}
+    .video-meta{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:14px 16px 0;color:#afc9cd;font-size:11px}
+    .video-status{padding:4px 7px;border-radius:5px;background:#ffffff18;color:#d5e8e7;white-space:nowrap}
+    .screen{min-height:204px;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
+    .screen h1{margin:0;color:#deece4;font-family:Georgia,"Microsoft YaHei",serif;font-size:20px;font-weight:500;letter-spacing:.04em}
+    .formula{max-width:100%;color:#d0dfcf;font-family:Georgia,serif;font-size:21px;letter-spacing:.02em;overflow-wrap:anywhere}
+    .screen p{margin:0;color:#b9cbd1;font-size:11px;line-height:1.6}
+    .play{min-height:34px;padding:6px 13px;border:0;border-radius:20px;background:#ffffff1c;color:#fff;font-size:12px}
+    .controls{display:flex;align-items:center;gap:9px;padding:0 15px 13px;color:#d1e1df;font-size:10px}
+    .controls time{white-space:nowrap}
+    .progress{min-width:30px;flex:1;width:100%;height:3px;margin:0;accent-color:#c6dbcd}
+    .speed{min-width:38px;padding:5px 0;border:0;background:transparent;color:#fff;font-size:11px;text-align:right}
+    .locked-screen{background:linear-gradient(130deg,#26314c,#3f3855)}
+    .lock-icon{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;background:#ffffff18;color:#fff;font-size:19px}
+    .locked-screen h1{font-family:inherit;font-size:18px;letter-spacing:0;color:#fff}
+    .locked-screen .formula,.locked-screen .controls{display:none}
+    .unlock-link{padding:8px 16px;border:0;border-radius:6px;background:var(--blue);color:#fff;font-size:12px;font-weight:700}
+    .notice{display:none;margin-top:10px;padding:10px 12px;border:1px solid #c9ebd0;border-radius:5px;background:#e2f9e4;color:#287245;font-size:12px;line-height:1.5}
+    .notice.show{display:block}
+    .content{padding:16px 6px 0}
+    .version-switch{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;border-radius:10px;background:var(--blue-soft)}
+    .version-switch button{min-width:0;min-height:57px;padding:8px 3px;border:0;border-radius:7px;background:transparent;color:var(--muted);text-align:center}
+    .version-switch strong{display:block;font-size:13px;font-weight:800}
+    .version-switch small{display:block;margin-top:4px;font-size:10px}
+    .version-switch button[aria-pressed="true"]{background:#fff;color:var(--blue);box-shadow:0 2px 7px rgba(28,53,87,.08)}
+    .switch-message{min-height:34px;margin:10px 0 15px;color:var(--muted);font-size:11px;line-height:1.6}
+    .course h2{margin:0 0 5px;font-size:19px;line-height:1.4;letter-spacing:-.04em}
+    .course p{margin:0 0 10px;color:var(--muted);font-size:12px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .tag{padding:4px 8px;border-radius:4px;background:var(--blue-soft);color:#587194;font-size:11px}
+    .promo{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;padding:11px 12px;border-radius:7px;background:#eaf4ff}
+    .promo strong{display:block;margin-bottom:3px;font-size:12px;font-weight:800}
+    .promo p{margin:0;color:var(--muted);font-size:10px;line-height:1.5}
+    .promo button{flex-shrink:0;min-height:32px;padding:5px 0;border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:800}
+    .directory-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+    .directory-head h2{font-size:16px;font-weight:800}
+    .directory-head span{color:var(--muted);font-size:11px}
+    .topic{margin:13px 0 3px;color:var(--muted);font-size:12px;font-weight:700}
+    .lesson{display:flex;width:100%;align-items:center;gap:10px;padding:12px 2px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left}
+    .lesson.current{color:var(--blue)}
+    .lesson:disabled{cursor:not-allowed;opacity:.68}
+    .lesson-order{width:24px;flex-shrink:0;color:var(--muted);font-size:11px;text-align:center}
+    .lesson.current .lesson-order{color:var(--blue)}
+    .lesson-copy{flex:1;min-width:0}
+    .lesson b{display:block;font-size:12px;font-weight:700;line-height:1.5}
+    .lesson small{display:block;margin-top:3px;color:var(--muted);font-size:10px}
+    .lesson em{flex-shrink:0;color:var(--muted);font-size:10px;font-style:normal}
+    .lesson.current em{color:var(--blue)}
+    .expand{display:block;width:100%;min-height:39px;padding:10px 0;border:0;background:transparent;color:var(--muted);font-size:11px;text-align:center}
+    .bottom{position:fixed;left:50%;bottom:0;display:flex;width:min(100%,430px);align-items:center;justify-content:space-between;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);border-top:1px solid var(--line);background:#fff}
+    .bottom-copy{min-width:0}
+    .bottom strong{display:block;font-size:14px;font-weight:800}
+    .bottom small{display:block;margin-top:3px;color:var(--muted);font-size:10px}
+    .bottom button{flex-shrink:0;min-height:42px;padding:0 15px;border:0;border-radius:5px;background:var(--blue);color:#fff;font-size:13px;font-weight:800;box-shadow:0 3px 0 #1560d3}
+    .demo{margin:12px 0 0;color:var(--muted);font-size:10px;line-height:1.6}
+    @media(max-width:350px){.video-meta{padding-right:12px;padding-left:12px}.screen{min-height:185px}.screen h1{font-size:18px}.formula{font-size:18px}.bottom{padding-right:12px;padding-left:12px}.bottom button{padding:0 11px}}
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header class="top">
+      <button class="back" onclick="history.back()" aria-label="返回活动页">‹</button>
+      <strong>课程学习</strong>
+      <span class="top-spacer" aria-hidden="true"></span>
+    </header>
+    <main>
+      <section class="video" id="video">
+        <div class="video-meta"><span id="videoMeta">系统课 · 第 01 讲</span><span class="video-status" id="videoStatus">完整免费</span></div>
+        <div class="screen" id="screen">
+          <div class="lock-icon" id="lockIcon" hidden>▣</div>
+          <h1 id="videoTitle">课程章节 01｜名称待确认</h1>
+          <div class="formula" id="formula">课程内容展示区</div>
+          <p id="videoHint">真实课程视频与章节内容待确认</p>
+          <button class="play" id="play" aria-label="播放演示">▶　播放演示</button>
+          <button class="unlock-link" id="unlockLink" hidden>返回活动页查看解锁说明</button>
+        </div>
+        <div class="controls" id="controls">
+          <time id="time">00:00 / 时长待确认</time>
+          <input class="progress" id="progress" type="range" min="0" max="100" value="0" aria-label="调整模拟播放进度">
+          <button class="speed" id="speed">1.0×</button>
+        </div>
+      </section>
+      <div class="notice" id="notice" role="status" aria-live="polite"></div>
+      <div class="content">
+        <div class="version-switch" role="group" aria-label="切换课程版本">
+          <button type="button" data-mode="free" aria-pressed="true"><strong>免费系统课</strong><small>免费体验 · 进度模拟</small></button>
+          <button type="button" data-mode="paid" aria-pressed="false"><strong>期末精讲</strong><small id="paidModeNote">活动页解锁后可学</small></button>
+        </div>
+        <p class="switch-message" id="switchMessage">选择课程版本，浏览对应章节；当前播放与学习进度仅作演示。</p>
+        <section class="course">
+          <h2 id="courseTitle">高等数学 · 系统学习</h2>
+          <p>宋浩老师　·　课程介绍与课时待确认</p>
+          <div class="tags"><span class="tag">章节信息待确认</span><span class="tag" id="courseTag">免费体验</span></div>
+        </section>
+        <section class="promo">
+          <div><strong id="promoTitle">课程素材正在准备中</strong><p id="promoText">真实视频与课程内容以最终确认素材为准</p></div>
+          <button type="button" id="promoAction">继续学习 ›</button>
+        </section>
+        <section class="directory">
+          <div class="directory-head"><h2 id="directoryTitle">系统课目录</h2><span id="directoryStatus">章节名称待确认</span></div>
+          <p class="topic" id="topic" hidden>当前章节：课程内容待确认</p>
+          <div id="lessons"></div>
+          <button class="expand" id="expand" type="button">展开全部章节</button>
+        </section>
+        <p class="demo">演示说明：播放器、播放进度和课程切换均为模拟交互，不接入真实视频、学习记录或学习通接口。</p>
+      </div>
+    </main>
+    <div class="bottom">
+      <div class="bottom-copy"><strong id="bottomTitle">免费系统课</strong><small id="bottomStatus">当前进度 00:00 · 演示状态</small></div>
+      <button id="continue">继续学习</button>
+    </div>
+  </div>
+  <script>
+    const data={
+      free:[
+        {title:'系统课章节 01｜名称待确认',detail:'时长待确认 · 免费体验'},
+        {title:'系统课章节 02｜名称待确认',detail:'时长待确认'}
+      ],
+      paid:[
+        {title:'精讲章节 01｜名称待确认',detail:'时长待确认 · 精讲内容'},
+        {title:'精讲章节 02｜名称待确认',detail:'时长待确认'}
+      ]
+    };
+    const unlocked=localStorage.getItem('tongxuesheUnlocked')==='1';
+    let mode='free',index=0,seconds=0,speed=1,playing=false,expanded=false;
+    const notice=document.querySelector('#notice');
+    const toast=message=>{notice.textContent=message;notice.classList.add('show');};
+    const items=()=>data[mode];
+    const formatTime=value=>`${String(Math.floor(value/60)).padStart(2,'0')}:${String(value%60).padStart(2,'0')}`;
+    const setPlaying=value=>{playing=value;document.querySelector('#play').textContent=playing?'Ⅱ　暂停演示':'▶　播放演示';document.querySelector('#continue').textContent=playing?'暂停学习':'继续学习';};
+    function render(){
+      const locked=mode==='paid'&&!unlocked;
+      const lesson=items()[index]||items()[0];
+      document.querySelectorAll('[data-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));
+      document.querySelector('#paidModeNote').textContent=unlocked?'已解锁 · 可切换学习':'活动页解锁后可学';
+      document.querySelector('#videoMeta').textContent=`${mode==='paid'?'期末精讲':'系统课'} · 第 ${String(index+1).padStart(2,'0')} 讲`;
+      document.querySelector('#videoStatus').textContent=mode==='paid'?(unlocked?'已解锁':'待解锁（模拟）'):'完整免费（模拟）';
+      document.querySelector('#videoTitle').textContent=locked?'该章节尚未解锁':lesson.title;
+      document.querySelector('#videoHint').textContent=locked?'返回活动页查看课程解锁说明':(mode==='paid'?'已解锁内容以最终确认的课程素材为准':'真实课程视频与章节内容待确认');
+      document.querySelector('#screen').classList.toggle('locked-screen',locked);
+      document.querySelector('#lockIcon').hidden=!locked;
+      document.querySelector('#formula').hidden=locked;
+      document.querySelector('#play').hidden=locked;
+      document.querySelector('#unlockLink').hidden=!locked;
+      document.querySelector('#controls').hidden=locked;
+      document.querySelector('#progress').value=seconds;
+      document.querySelector('#time').textContent=`${formatTime(seconds)} / 时长待确认`;
+      document.querySelector('#courseTitle').textContent=`高等数学 · ${mode==='paid'?'期末精讲':'系统学习'}`;
+      document.querySelector('#courseTag').textContent=mode==='paid'?(unlocked?'已解锁（模拟）':'待解锁（模拟）'):'免费体验';
+      document.querySelector('#promoTitle').textContent=mode==='paid'?(unlocked?'期末精讲已解锁':'想继续学习精讲内容？'):'课程素材正在准备中';
+      document.querySelector('#promoText').textContent=mode==='paid'?(unlocked?'当前为演示解锁状态；章节内容待确认':'可返回活动页查看解锁说明'):'真实视频与课程内容以最终确认素材为准';
+      document.querySelector('#promoAction').textContent=mode==='paid'?(unlocked?'开始学习 ›':'查看说明 ›'):'课程目录 ›';
+      document.querySelector('#directoryTitle').textContent=mode==='paid'?'精讲目录':'系统课目录';
+      document.querySelector('#directoryStatus').textContent=locked?'待解锁（模拟）':`${items().length} 个演示章节`;
+      document.querySelector('#topic').hidden=mode==='paid'||expanded;
+      document.querySelector('#topic').textContent=`当前章节：${lesson.title}`;
+      const shown=expanded?items():items().slice(0,2);
+      document.querySelector('#lessons').innerHTML=shown.map((item,itemIndex)=>`<button class="lesson${itemIndex===index?' current':''}" type="button" data-lesson="${itemIndex}" ${locked?'disabled':''} aria-current="${itemIndex===index?'true':'false'}"><span class="lesson-order">${String(itemIndex+1).padStart(2,'0')}</span><span class="lesson-copy"><b>${item.title}</b><small>${item.detail}${itemIndex===index?` · ${playing?'正在学习':`上次停留 ${formatTime(seconds)}`}`:''}</small></span><em>${locked?'🔒':itemIndex===index?'当前':'可学'}</em></button>`).join('');
+      document.querySelector('#expand').hidden=items().length<=2;
+      document.querySelector('#expand').textContent=expanded?'收起章节':'展开全部章节';
+      document.querySelector('#bottomTitle').textContent=mode==='paid'?(unlocked?'已解锁期末精讲':'期末精讲待解锁'):'免费系统课';
+      document.querySelector('#bottomStatus').textContent=locked?'解锁状态以活动页演示为准':`当前进度 ${formatTime(seconds)} · 模拟状态`;
+      setPlaying(playing&&!locked);
+      document.querySelector('#continue').textContent=locked?'返回活动页':(playing?'暂停学习':'继续学习');
+    }
+    function togglePlayback(){
+      if(mode==='paid'&&!unlocked){location.href='index.html#unlock';return;}
+      setPlaying(!playing);
+      toast(playing?'正在演示播放；学习进度为模拟展示。':'已暂停；模拟进度已保留。');
+      render();
+    }
+    document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
+      mode=button.dataset.mode;index=0;seconds=0;expanded=false;setPlaying(false);render();
+      toast(mode==='paid'?(unlocked?'已切换至期末精讲。':'期末精讲尚未解锁。'):'已切换至免费系统课。');
+    }));
+    document.querySelector('#play').addEventListener('click',togglePlayback);
+    document.querySelector('#continue').addEventListener('click',togglePlayback);
+    document.querySelector('#unlockLink').addEventListener('click',()=>{location.href='index.html#unlock';});
+    document.querySelector('#promoAction').addEventListener('click',()=>document.querySelector('#directoryTitle').scrollIntoView({behavior:'smooth',block:'center'}));
+    document.querySelector('#speed').addEventListener('click',event=>{
+      speed=speed===1?1.5:speed===1.5?2:1;
+      event.currentTarget.textContent=`${speed.toFixed(1)}×`;
+      toast(`当前为 ${speed.toFixed(1)}× 倍速（模拟）。`);
+    });
+    document.querySelector('#progress').addEventListener('input',event=>{
+      seconds=Number(event.currentTarget.value);
+      document.querySelector('#time').textContent=`${formatTime(seconds)} / 时长待确认`;
+      document.querySelector('#bottomStatus').textContent=`当前进度 ${formatTime(seconds)} · 模拟状态`;
+    });
+    document.querySelector('#lessons').addEventListener('click',event=>{
+      const button=event.target.closest('[data-lesson]');
+      if(!button)return;
+      index=Number(button.dataset.lesson);seconds=0;setPlaying(false);render();
+      toast(`已切换至「${items()[index].title}」。`);
+    });
+    document.querySelector('#expand').addEventListener('click',()=>{expanded=!expanded;render();});
+    render();
+  </script>
+</body>
+</html>

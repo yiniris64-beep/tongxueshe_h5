@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>课程心愿单｜通学社</title>
+  <style>
+    :root { --ink:#122244; --muted:#7186a7; --line:#d8e7f8; --paper:#f5faff; --panel:#fff; --accent:#2874f4; --soft:#eaf4ff; --success:#e2f9e4; --shadow:0 8px 22px rgba(54,116,210,.08); }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#dfe8f4; color:var(--ink); font-family:"Microsoft YaHei",Arial,sans-serif; }
+    button,input,textarea { font:inherit; }
+    button { cursor:pointer; }
+    .phone { width:min(100%,430px); min-height:100vh; margin:auto; padding-bottom:28px; background:linear-gradient(180deg,#f7fbff 0,#eff8ff 100%); box-shadow:0 0 0 1px #bfd0e4,0 18px 44px rgba(34,67,108,.15); }
+    .top { height:82px; display:flex; align-items:flex-end; gap:12px; padding:0 16px 13px; background:#fbfdff; border-bottom:1px solid #e5effa; }
+    .back { width:28px; height:36px; border:0; background:transparent; color:#15223c; font-size:31px; line-height:1; }
+    .top strong { padding-bottom:8px; font-size:17px; letter-spacing:-.04em; }
+    main { padding:18px 16px; }
+    .eyebrow { color:var(--accent); font-size:11px; font-weight:900; letter-spacing:.06em; }
+    h1 { margin:10px 0 9px; font-size:28px; line-height:1.16; letter-spacing:-.05em; }
+    h2 { margin:0; font-size:18px; line-height:1.35; letter-spacing:-.03em; }
+    p { margin:0; line-height:1.6; }
+    .sub { color:var(--muted); font-size:13px; }
+    .intro,.card { padding:16px; background:#fff; border:1px solid var(--line); border-radius:7px; }
+    .intro { background:linear-gradient(135deg,#fff 0%,#eaf4ff 100%); }
+    .card { margin-top:14px; box-shadow:var(--shadow); }
+    .card > .sub { margin-top:3px; }
+    .rule { height:1px; margin:14px 0; background:#e5effa; }
+    .choices { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:14px; }
+    .choice { min-height:62px; padding:10px; text-align:left; border:1px solid var(--line); border-radius:5px; background:#f7fbff; color:var(--ink); font-size:14px; transition:border-color .15s,background .15s,color .15s; }
+    .choice small { display:block; margin-top:4px; color:var(--muted); font-size:11px; }
+    .choice.selected { border-color:var(--accent); color:var(--accent); background:var(--soft); box-shadow:inset 0 0 0 1px var(--accent); }
+    .choice:focus-visible,.btn:focus-visible,.back:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    label { display:block; margin-top:13px; color:#4b637f; font-size:12px; font-weight:700; }
+    input,textarea { width:100%; margin-top:6px; padding:11px 12px; border:1px solid var(--line); border-radius:5px; background:#fff; color:var(--ink); font-size:14px; }
+    input::placeholder,textarea::placeholder { color:#9aabc1; }
+    input:focus,textarea:focus { border-color:var(--accent); outline:2px solid #2874f426; }
+    textarea { min-height:84px; resize:vertical; }
+    .btn { width:100%; min-height:46px; margin-top:16px; border:0; border-radius:5px; background:var(--accent); color:#fff; font-size:15px; font-weight:900; box-shadow:0 3px 0 #1560d3; }
+    .btn:active { transform:translateY(1px); box-shadow:0 2px 0 #1560d3; }
+    .state { display:none; margin-top:14px; padding:11px 12px; border:1px solid #c9ebd0; border-radius:5px; background:var(--success); color:#287245; font-size:13px; line-height:1.6; }
+    .state.show { display:block; }
+    .note { margin-top:16px; color:var(--muted); font-size:11px; line-height:1.7; }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header class="top"><button class="back" onclick="history.back()" aria-label="返回活动页">‹</button><strong>课程心愿单</strong></header>
+    <main>
+      <section class="intro"><div class="eyebrow">下一期内容共创</div><h1>下一门复习课，<br>你来定。</h1><p class="sub">投票或推荐你最希望学习的课程。这里仅模拟收集需求，不关联真实账号或课程上架。</p></section>
+      <section class="card"><h2>你想听哪些课？</h2><p class="sub">可多选</p><div class="choices" id="choices"><button class="choice" data-choice="大学物理">大学物理<small>想听这门课</small></button><button class="choice" data-choice="数据结构">数据结构<small>想听这门课</small></button><button class="choice" data-choice="大学英语">大学英语<small>想听这门课</small></button><button class="choice" data-choice="大学化学">大学化学<small>想听这门课</small></button><button class="choice" data-choice="大学语文">大学语文<small>想听这门课</small></button><button class="choice" data-choice="管理会计">管理会计<small>想听这门课</small></button></div><button class="btn" id="vote">为想听的课投票</button><div class="state" id="voteState"></div></section>
+      <section class="card"><h2>没有选项？直接推荐</h2><p class="sub">填写想学的科目，也可以补充想听的老师或复习重点。</p><div class="rule"></div><label>课程 / 科目名称 *</label><input id="subject" placeholder="例如：大学物理、电路原理"><label>想听的老师（选填）</label><input id="teacher" placeholder="填写老师昵称或账号"><label>教材或复习重点（选填）</label><textarea id="detail" placeholder="例如：使用哪版教材，最想弄懂哪些章节"></textarea><button class="btn" id="recommend">提交我的推荐</button><div class="state" id="recommendState"></div></section>
+      <p class="note">演示说明：提交仅在当前页面展示反馈，不会发送真实投票或个人信息。</p>
+    </main>
+  </div>
+  <script>
+    const selected=new Set(); const show=(el,msg)=>{el.textContent=msg;el.classList.add('show');};
+    document.querySelectorAll('[data-choice]').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.choice;selected.has(key)?selected.delete(key):selected.add(key);btn.classList.toggle('selected',selected.has(key));}));
+    document.querySelector('#vote').addEventListener('click',()=>show(document.querySelector('#voteState'),selected.size?`已模拟提交 ${selected.size} 门课程的心愿：${[...selected].join('、')}。`:'请至少选择一门课程后再投票。'));
+    document.querySelector('#recommend').addEventListener('click',()=>{const subject=document.querySelector('#subject').value.trim();const state=document.querySelector('#recommendState');show(state,subject?`已模拟收到「${subject}」的推荐，感谢你的建议。`:'请先填写课程 / 科目名称。');});
+  </script>
+</body>
+</html>
