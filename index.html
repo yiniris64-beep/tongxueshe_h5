@@ -51,19 +51,91 @@
     .wish-wave{display:block;width:38%;max-width:140px;height:auto;flex:0 1 140px;object-fit:contain}
     @media(max-width:360px){.wish-main{padding:11px 12px;font-size:13px}.wish-wave{width:34%}}
     .footer{min-height:163px;padding-right:135px}.footer .books{right:16px;bottom:11px;width:104px;height:89px;border:0;border-radius:0;background:none;transform:none;opacity:1;object-fit:contain}
+    .hero{min-height:345px;padding:20px 27px 0}
+    .hero-copy{z-index:3;max-width:300px;margin-top:10px}
+    .hero h2{font-size:45px;line-height:1.12;letter-spacing:-.08em}
+    .hero-subtitle{position:absolute;z-index:3;left:27px;bottom:14px;width:190px;margin:0;color:var(--ink);font-size:15px!important;line-height:1.45!important;transform:rotate(-4deg)}
+    .hero-pain{position:absolute;z-index:3;top:212px;left:27px;width:154px;padding:17px 12px 10px;border:2px solid #d5eaff;border-radius:15px;background:rgba(255,255,255,.94);box-shadow:0 3px 8px rgba(48,112,192,.12);font-size:11px;font-weight:700}
+    .hero-pain strong{position:absolute;top:-15px;left:8px;padding:5px 12px;border-radius:12px;background:var(--blue);color:#fff;font-size:12px}
+    .hero-pain ul{display:grid;gap:4px;margin:0;padding:0;list-style:none}
+    .hero-pain li:before{content:"✓";display:inline-grid;width:14px;height:14px;margin-right:5px;place-items:center;border-radius:50%;background:#a9bdd7;color:#fff;font-size:10px}
+    .portrait{right:-4px;bottom:0;width:190px;height:285px;z-index:1}
+    .note{right:32px;bottom:16px;width:124px;padding:8px 10px;font-size:13px;transform:rotate(-7deg)}
+    .principles{margin-top:4px;padding:12px 16px 8px;border-radius:28px}
+    .principle{font-size:12px}
+    .symbol{display:block;width:48px;height:48px;margin:0 auto 5px;object-fit:contain}
+    .teacher{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:12px;align-items:center;padding:8px}
+    .teacher-video{width:100%;height:auto;aspect-ratio:1.4;border-radius:4px}
+    .teacher-video img{width:100%;height:100%;object-fit:cover}
+    .teacher-video .play{display:none}
+    .teacher .ticks{gap:7px;margin:0;font-size:11px;line-height:1.5}
+    .lesson:disabled{opacity:1;color:var(--ink)}
+    .quote{padding:10px 8px 0;text-align:center}
+    .course-card{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:12px}
+    .course-cover{height:auto;aspect-ratio:1.78;border-radius:5px}
+    .course-info h3{margin-bottom:7px;font-size:16px}
+    .course-info p{font-size:11px;line-height:1.5}
+    .course-info .chips{gap:5px}
+    .free-more{border-radius:5px}
+    @media(max-width:360px){
+      .hero h2{font-size:36px}
+      .hero-pain{top:204px;left:27px;width:145px;font-size:10px}
+      .hero-subtitle{left:27px;width:190px;font-size:14px!important}
+      .portrait{width:170px;height:255px}
+      .note{right:18px;width:112px;font-size:12px}
+      .teacher{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:6px}
+      .teacher .ticks{font-size:10px}
+      .course-card{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8px;padding:9px}
+      .course-info h3{font-size:14px}
+      .course-info p{font-size:10px}
+    }
+    .guarantee{position:relative;display:flex;align-items:center;gap:12px;margin:16px 0 12px;padding:10px 12px;border:1px solid #ffdc72;border-radius:10px;background:#fffdf6;text-align:center}
+    .guarantee-icon{position:absolute;left:12px;display:grid;width:40px;height:40px;place-items:center}
+    .guarantee-icon svg{display:block;width:34px;height:38px}
+    .guarantee-copy{width:100%;text-align:center}
+    .guarantee-copy strong{display:block;color:#111827;font-size:19px;line-height:1.3}
+    .guarantee-copy small{display:block;margin-top:3px;color:#987044;font-size:10px;line-height:1.4}
+    .primary{font-size:20px}
+    .steps-note{margin:8px 0 0;color:#586f8e;font-size:10px;line-height:1.6;text-align:center}
+    .faq{overflow:hidden;border-radius:7px;box-shadow:var(--shadow)}
+    .faq-item{border-bottom:1px solid #d9e7f8;background:#fff}
+    .faq-item:last-child{border-bottom:0}
+    .faq .faq-question{display:flex;align-items:center;gap:9px;width:100%;min-height:48px;padding:8px 12px;border:0;background:#fff;color:#17233c;text-align:left;font-size:13px}
+    .faq .faq-question:before{display:none;content:none}
+    .faq-icon{display:grid;width:25px;height:25px;flex:0 0 25px;place-items:center;border-radius:6px;background:#e4f1ff;color:var(--blue);font-size:17px;font-weight:900}
+    .faq-question>span:nth-child(2){flex:1}
+    .faq-chevron{flex:0 0 auto;color:#637c9c;font-size:16px;transition:transform .18s ease}
+    .faq-question[aria-expanded="true"] .faq-chevron{transform:rotate(180deg)}
+    .faq-answer{margin:0 10px 9px;padding:10px 12px;border-radius:10px;background:#f1f8fe;color:#5f7798;font-size:12px;line-height:1.55}
+    .faq-answer[hidden]{display:none}
+    .wish-actions a{background:rgba(113,91,204,.08)}
+    .footer{background:linear-gradient(115deg,#e4f2ff 0%,#d1e8ff 100%)}
+    @media(max-width:360px){
+      .guarantee{gap:7px;margin-top:13px;padding:9px 7px}
+      .guarantee-copy strong{font-size:17px}
+      .guarantee-copy small{font-size:9px}
+      .primary{font-size:17px}
+      .faq .faq-question{padding-right:9px;padding-left:9px;font-size:12px}
+    }
   </style>
 </head>
 <body>
   <main class="app" id="top">
     <header class="top"><button onclick="history.back()" aria-label="返回">‹</button><h1>通学社 · 期末数学精讲</h1><button class="open" id="jump" aria-label="查看课程目录">↗</button></header>
-    <section class="hero"><div class="brand"><img src="assets/brand-badge.svg" alt="通学社"></div><div class="brand-mini"><img src="assets/xuexitong-icon.png" alt="学习通">学习通</div><div class="hero-copy"><h2><span>期末数学</span><span>精讲计划</span></h2><p>宋浩老师带你抓重点<br>高效复习少走弯路 ! </p></div><i class="hero-cube" aria-hidden="true"></i><i class="hero-triangle" aria-hidden="true"></i><div class="portrait" aria-label="宋浩老师人物素材"><img src="assets/song-portrait.png" alt="宋浩老师"></div><div class="note">宋浩老师<br>知名高校教师<br>多年高校教学经验</div></section>
-    <section class="principles" aria-label="课程价值"><div class="principle"><div class="symbol">▤</div>核心知识梳理</div><div class="principle"><div class="symbol">⊡</div>典型题型解析</div><div class="principle"><div class="symbol">▥</div>高频考点总结</div><div class="principle"><div class="symbol">▷</div>讲课深入浅出</div></section>
-    <section class="section"><div class="sec-head"><div class="chapter">CHAPTER 01</div><span class="en">ABOUT TEACHER</span><span class="num">01</span><h2 class="section-title">认识本期老师</h2></div><p class="lead">跟着老师，把重点学明白</p><div class="teacher"><button class="teacher-video" id="teacherVideo" aria-label="播放老师介绍视频"><img src="assets/teacher-video-cover.png" alt="宋浩老师介绍视频封面"><span class="play">▶</span></button><div class="teacher-copy"><h3>宋浩 <small>拟邀合作示例</small></h3><p>多年高校教学经验，带你理清知识脉络，抓住复习重点。</p><ul class="ticks"><li>梳理框架，告别盲目复习！</li><li>聚焦重难点，理清解题思路</li><li>深入浅出抓高频考点</li><li>系统总结归纳，助力考前复盘</li></ul></div></div><p class="quote">期末复习不是从头学起，而是抓住重点、建立框架、吃透题型。<span>—— 宋浩</span></p></section>
-    <section class="section" id="free"><div class="sec-head"><div class="chapter">CHAPTER 02</div><span class="en">FREE COURSE</span><span class="num">02</span><h2 class="section-title">先免费学一节</h2></div><p class="lead">先试听一节，看看适不适合你</p><div class="course-card"><div class="course-cover" aria-label="《高等数学》教学视频 3.0版本课程封面"></div><div class="course-info"><h3>高数复习方法指南</h3><p>梳理期末复习思路，掌握高效学习方法</p><div class="chips"><span class="chip free">免费</span><span class="chip">12分钟</span><span class="chip">6.2万人已学</span></div></div></div><button class="free-more" disabled>查看更多免费课程　›</button></section>
-    <section class="section" id="catalog"><div class="sec-head catalog-head"><div class="chapter">CHAPTER 03</div><span class="en">COURSE LIST</span><span class="num">03</span><h2 class="section-title">完整精讲目录</h2><span class="catalog-badge">考前重点</span></div><p class="lead">系统梳理核心知识 + 典型题型 + 考前冲刺</p><div class="list"><button class="lesson" disabled><span class="order">01</span><span><b>函数与极限核心考点</b><small>24分钟 · 高频考点梳理</small></span><span class="trial">试听待上线</span></button><button class="lesson" data-lock><span class="order">02</span><span><b>导数与微分重点突破</b><small>28分钟 · 典型例题解析</small></span><span class="lock">▣</span></button><button class="lesson" data-lock><span class="order">03</span><span><b>积分与应用综合训练</b><small>23分钟 · 真题题型讲解</small></span><span class="lock">▣</span></button><button class="lesson" data-lock><span class="order">04</span><span><b>多元函数与微分方程</b><small>26分钟 · 常见题型梳理</small></span><span class="lock">▣</span></button></div><button class="all-course" data-lock>查看全部课程（12节）　›</button></section>
-    <section class="section" id="unlock"><div class="sec-head"><div class="chapter">CHAPTER 04</div><span class="en">UNLOCK ALL</span><span class="num">04</span><h2 class="section-title">把复习重点，一次理清</h2></div><p class="lead">包含全部 12 节精讲课程，支持在学习通内学习</p><div class="unlock"><div class="price"><mark>限时特惠</mark><strong>¥5.9</strong><del>¥29.9</del></div><ul class="benefits"><li>完整 12 节课程内容</li><li>配套讲义与题目</li><li>支持在学习通内学习</li><li>一次付费 · 反复观看</li></ul><button class="primary" id="pay">　→</button><div class="pay-status" id="payStatus"></div></div></section>
-    <section class="section"><div class="sec-head"><div class="chapter">CHAPTER 05</div><span class="en">LEARNING STEPS</span><span class="num">05</span><h2 class="section-title">解锁后，按自己的节奏学</h2></div><p class="lead">支付成功后，可在学习通中查看课程</p><div class="steps"><div class="step"><i>✓</i>支付成功</div><div class="step"><i>▣</i>在学习通中<br>查看课程</div><div class="step"><i>▶</i>随时随地学习</div></div></section>
-    <section class="section"><div class="sec-head"><div class="chapter">CHAPTER 06</div><span class="en">FAQ</span><span class="num">06</span><h2 class="section-title">常见问题</h2></div><div class="faq"><button data-faq>购买后在哪里学习？<span>⌄</span></button><button data-faq>课程可以回放吗？<span>⌄</span></button><button data-faq>没有我想要的复习课怎么办？<span>⌄</span></button><button data-faq>本次活动的有效期是多久？<span>⌄</span></button></div></section>
+    <section class="hero"><div class="brand"><img src="assets/brand-badge.svg" alt="通学社"></div><div class="brand-mini"><img src="assets/xuexitong-icon.png" alt="学习通">学习通</div><div class="hero-copy"><h2><span>期末将至！</span><span>复习别再拖</span></h2></div><div class="hero-pain"><strong>考前痛点</strong><ul><li>知识点还没理清？</li><li>典型题型还没掌握？</li></ul></div><p class="hero-subtitle">宋浩老师带你抓重点<br>高效复习少走弯路！</p><i class="hero-cube" aria-hidden="true"></i><i class="hero-triangle" aria-hidden="true"></i><div class="portrait" aria-label="宋浩老师人物素材"><img src="assets/song-portrait.png" alt="宋浩老师"></div><div class="note">宋浩老师<br>知名高校教师<br>多年数学经验</div></section>
+    <section class="principles" aria-label="课程价值"><div class="principle"><img class="symbol" src="assets/核心知识梳理.png" alt="">核心知识梳理</div><div class="principle"><img class="symbol" src="assets/典型题型解析.png" alt="">典型题型解析</div><div class="principle"><img class="symbol" src="assets/高频考点总结.png" alt="">高频考点总结</div><div class="principle"><img class="symbol" src="assets/讲课深入浅出.png" alt="">讲课深入浅出</div></section>
+    <section class="section"><div class="sec-head"><div class="chapter">CHAPTER 01</div><span class="en">ABOUT TEACHER</span><span class="num">01</span><h2 class="section-title">认识本期老师</h2></div><p class="lead">别等考前才发现，重点还没理清</p><div class="teacher"><button class="teacher-video" id="teacherVideo" aria-label="播放老师介绍视频"><img src="assets/teacher-video-cover.png" alt="宋浩老师介绍视频封面"><span class="play">▶</span></button><ul class="ticks"><li>梳理框架，告别盲目复习！</li><li>聚焦重难点，理清解题思路</li><li>深入浅出，抓高频考点</li><li>系统总结归纳，助力考前复盘</li></ul></div><p class="quote">期末复习不是从头学起，而是抓住重点、建立框架、吃透题型。<span>—— 宋浩</span></p></section>
+    <section class="section" id="free"><div class="sec-head"><div class="chapter">CHAPTER 02</div><span class="en">FREE COURSE</span><span class="num">02</span><h2 class="section-title">先免费学一节</h2></div><p class="lead">先试听一节，看看适不适合你</p><div class="course-card"><div class="course-cover" aria-label="《高等数学》教学视频 3.0版本课程封面"></div><div class="course-info"><h3>10分钟复习指南</h3><p>时间有限，别再盲目刷题！先把核心考点理清</p><div class="chips"><span class="chip">10分钟</span><span class="chip free">免费</span></div></div></div><button class="free-more" disabled>免费试听，提前查漏补缺　→</button></section>
+    <section class="section" id="catalog"><div class="sec-head catalog-head"><div class="chapter">CHAPTER 03</div><span class="en">COURSE LIST</span><span class="num">03</span><h2 class="section-title">完整精讲目录</h2><span class="catalog-badge">考前重点</span></div><p class="lead">从知识梳理到题型拆解</p><div class="list"><button class="lesson" disabled><span class="order">01</span><span><b>函数与极限核心考点</b><small>24分钟 · 高频考点精讲</small></span><span class="trial">试听</span></button><button class="lesson" data-lock><span class="order">02</span><span><b>导数与微分重点突破</b><small>28分钟 · 典型例题解析</small></span><span class="lock">▣</span></button><button class="lesson" data-lock><span class="order">03</span><span><b>积分与应用综合训练</b><small>32分钟 · 真题题型讲解</small></span><span class="lock">▣</span></button><button class="lesson" data-lock><span class="order">04</span><span><b>多元函数与微分方程</b><small>26分钟 · 常见题型梳理</small></span><span class="lock">▣</span></button></div><button class="all-course" data-lock>查看全部课程（12节）　›</button></section>
+    <section class="section" id="unlock"><div class="sec-head"><div class="chapter">CHAPTER 04</div><span class="en">UNLOCK ALL</span><span class="num">04</span><h2 class="section-title">把复习重点，一次理清</h2></div><p class="lead">包含全部 12 节精讲课程，支持在学习通内学习</p><div class="unlock"><div class="price"><mark>限时特惠</mark><strong>¥5.9</strong><del>¥29.9</del></div><ul class="benefits"><li>完整 12 节课程内容</li><li>配套讲义与题目</li><li>支持在学习通内学习</li><li>一次付费 · 反复观看</li></ul><div class="guarantee"><span class="guarantee-icon" aria-hidden="true"><svg viewBox="0 0 48 52" fill="none"><path d="M24 3 43 11v13c0 12-8 20-19 25C13 44 5 36 5 24V11L24 3Z" stroke="#ff994d" stroke-width="2.8" stroke-linejoin="round"/><path d="m16 25 5 5 11-12" stroke="#ff994d" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="guarantee-copy"><strong>期末不过包退</strong><small>符合活动规则可申请 · 需提交学校盖章成绩证明</small></span></div><button class="primary" id="pay">立即解锁精讲课程　→</button><div class="pay-status" id="payStatus"></div></div></section>
+    <section class="section"><div class="sec-head"><div class="chapter">CHAPTER 05</div><span class="en">LEARNING STEPS</span><span class="num">05</span><h2 class="section-title">解锁后，按自己的节奏学</h2></div><p class="lead">支付成功后，可在学习通中查看课程</p><div class="steps"><div class="step"><i>✓</i>支付成功</div><div class="step"><i>▣</i>在学习通中<br>查看课程</div><div class="step"><i>▶</i>随时随地学习</div></div><p class="steps-note">* 购买前请了解课程权益与保障规则，安心安排复习计划。</p></section>
+    <section class="section"><div class="sec-head"><div class="chapter">CHAPTER 06</div><span class="en">FAQ</span><span class="num">06</span><h2 class="section-title">常见问题</h2></div><div class="faq">
+      <div class="faq-item"><button class="faq-question" type="button" data-faq aria-expanded="false" aria-controls="faq-answer-1"><span class="faq-icon" aria-hidden="true">Q</span><span>购买后在哪里学习？</span><span class="faq-chevron" aria-hidden="true">⌄</span></button><div class="faq-answer" id="faq-answer-1" hidden>支付完成后，可通过学习通课程入口继续学习。</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" data-faq aria-expanded="false" aria-controls="faq-answer-2"><span class="faq-icon" aria-hidden="true">Q</span><span>课程可以回放吗？</span><span class="faq-chevron" aria-hidden="true">⌄</span></button><div class="faq-answer" id="faq-answer-2" hidden>课程回放权益以活动页面说明及学习通实际配置为准。</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" data-faq aria-expanded="false" aria-controls="faq-answer-3"><span class="faq-icon" aria-hidden="true">Q</span><span>没有我想要的复习课怎么办？</span><span class="faq-chevron" aria-hidden="true">⌄</span></button><div class="faq-answer" id="faq-answer-3" hidden>可以在课程心愿单中投票，或推荐想学习的课程与老师。</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" data-faq aria-expanded="false" aria-controls="faq-answer-4"><span class="faq-icon" aria-hidden="true">Q</span><span>本次活动的有效期是多久？</span><span class="faq-chevron" aria-hidden="true">⌄</span></button><div class="faq-answer" id="faq-answer-4" hidden>课程有效期以活动规则和学习通实际配置为准。</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" data-faq aria-expanded="true" aria-controls="faq-answer-5"><span class="faq-icon" aria-hidden="true">Q</span><span>期末考试未通过，可以申请退款吗？</span><span class="faq-chevron" aria-hidden="true">⌄</span></button><div class="faq-answer" id="faq-answer-5">符合活动保障规则的用户，可按要求提交成绩证明文件申请审核。具体条件、申请期限及退款流程以正式规则为准。</div></div>
+    </div></section>
     <section class="section wish"><div class="sec-head"><div class="chapter">CHAPTER 07</div><span class="en">FEEDBACK</span><span class="num">07</span><h2 class="section-title">下一门复习课，你来定</h2></div><span class="wish-badge">需求收集</span><p class="lead">还没有你的科目？投票或推荐一门想学的<br>复习课，帮助我们确定下一期内容。</p><div class="wish-actions"><a href="wishlist.html">▥　快速选择课程投票</a><a href="wishlist.html">✎　主动推荐课程与老师</a></div><div class="wish-cta-row"><a class="wish-main" href="wishlist.html">去填写心愿单　→</a><img class="wish-wave" src="assets/wave.svg" alt="" aria-hidden="true"></div></section>
     <footer class="footer"><h3>通学社｜让期末复习更高效</h3><p>本活动与学习通平台有关，课程内容及服务以实际为准。</p><div class="study"><img src="assets/xuexitong-icon.png" alt="学习通">学习通</div><img class="books" src="assets/footer-books.svg" alt="" aria-hidden="true"></footer>
   </main><div class="toast" id="toast" role="status"></div>
@@ -73,7 +145,7 @@
     document.querySelector('#jump').addEventListener('click',()=>{const target=document.querySelector('#catalog');window.scrollTo({top:target.offsetTop-64,behavior:'smooth'})});
     document.querySelector('#teacherVideo').addEventListener('click',()=>toast('老师介绍视频为演示占位，真实素材待接入'));
     document.querySelectorAll('[data-lock]').forEach(button=>button.addEventListener('click',toUnlock));
-    document.querySelectorAll('[data-faq]').forEach((button,index)=>button.addEventListener('click',()=>{const answers=['支付完成后可通过学习通现有课程入口继续学习；当前为模拟说明。','解锁权益与回放规则以本次活动最终说明为准。','可以在课程心愿单中投票，或填写你想学习的课程与老师。','课程有效期以活动规则和学习通实际配置为准。'];toast(answers[index]);}));
+    document.querySelectorAll('[data-faq]').forEach(button=>button.addEventListener('click',()=>{const isExpanded=button.getAttribute('aria-expanded')==='true';document.querySelectorAll('[data-faq]').forEach(item=>{item.setAttribute('aria-expanded','false');document.getElementById(item.getAttribute('aria-controls')).hidden=true;});if(!isExpanded){button.setAttribute('aria-expanded','true');document.getElementById(button.getAttribute('aria-controls')).hidden=false;}}));
     document.querySelector('#pay').addEventListener('click',()=>{localStorage.setItem('tongxuesheUnlocked','1');document.querySelector('#payStatus').textContent='解锁成功（模拟）。已开放课程学习入口。';document.querySelector('#payStatus').classList.add('show');document.querySelector('#pay').textContent='立即进入课程学习　→';document.querySelector('#pay').onclick=()=>location.href='study.html';toast('支付成功（模拟）');});
     if(localStorage.getItem('tongxuesheUnlocked')==='1'){document.querySelector('#pay').textContent='立即进入课程学习　→';document.querySelector('#pay').onclick=()=>location.href='study.html';}
   </script>
